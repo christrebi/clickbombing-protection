@@ -8,7 +8,7 @@ var mil;
 
 // check if browser is compatible with addeventlistener
 if (document.addEventListener) {
-    ad.addEventListener('click', function(e) {
+    ad.addEventListener('mousedown', function(e) {
         counter++;
         if (!e) {
             e = window.event;
@@ -34,7 +34,7 @@ if (document.addEventListener) {
     } 
     // check if cookies are accessible
         else if (cookiesEnabled()) {
-         ad.addEventListener('click', createCookie, false)
+         ad.addEventListener('mousedown', createCookie, false)
     } 
     //check if  neither cookies nor localstorage unavailable
         else if(!cookiesEnabled() && !hasStorage()){
@@ -46,7 +46,7 @@ if (document.addEventListener) {
 } 
 // if addeventlistener isn't compatible:
 else if (document.attachEvent) {
-        ad.attachEvent('onclick', function() {
+        ad.attachEvent('onmousedown', function() {
         oldbr(); 
     })  
 } else if (!document.addEventListener || !document.attachEvent) {
